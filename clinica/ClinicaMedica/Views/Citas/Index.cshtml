@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ClinicaMedica.Data.Models.Cita>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bienvenido/a  a Citas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success"> <i class="bi bi-plus-circle"> Crear nueva cita</i></a>
+</p>
+<table class="table" id="tblCitas">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotivoConsulta)
+            </th>
+            <th>
+                @Html.DisplayName("Doctor") <!-- Nombre del Doctor -->
+            </th>
+            <th>
+                @Html.DisplayName("Paciente") <!-- Nombre del Paciente -->
+            </th>
+            <th>
+                @Html.DisplayName("Personal Administrativo") <!-- Nombre del Personal -->
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaCita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotivoConsulta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Paciente.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personal.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CitaId" class="btn btn-outline-warning custom-button"> <i class="bi bi-pencil-fill">Editar</i> </a> |
+                    <a asp-action="Details" asp-route-id="@item.CitaId" class="btn btn-outline-secondary custom-button"> <i class="bi bi-eye"> Ver </i> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.CitaId" class="btn btn-outline-danger custom-button">  <i class="bi bi-trash"> Eliminar </i> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        let table = new DataTable('#tblCitas', {
+        "language": {
+        "decimal": "",
+        "emptyTable": "No hay registros",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+        }
+        },
+        "width": "100%"
+        });
+    </script>
+}

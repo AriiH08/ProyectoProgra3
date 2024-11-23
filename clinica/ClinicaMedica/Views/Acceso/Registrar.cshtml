@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/css/login.css" rel="stylesheet" />
+    <title>Registro</title>
+</head>
+<body>
+    <div id="register">
+        <h3 class="text-center text-white pt-5">Formulario de Registro</h3>
+        <div class="container">
+            <div id="register-row" class="row justify-content-center align-items-center">
+                <div id="register-column" class="col-md-6">
+                    <div class="register-box col-md-12">
+                        <!-- Formulario para registro -->
+                        <form id="register-form" class="form" action="@Url.Action("Registrar", "Acceso")" method="post">
+                            <h3 class="text-center text-info">Regístrate</h3>
+
+                            <!-- Mensaje de error o confirmación -->
+                            @if (ViewData["Mensaje"] != null)
+                            {
+                                <div class="alert alert-danger text-center">
+                                    @ViewData["Mensaje"]
+                                </div>
+                            }
+
+                            <!-- Campo de Correo -->
+                            <div class="form-group">
+                                <label for="correo" class="text-info">Correo:</label><br>
+                                <input type="email" name="Correo" id="correo" class="form-control" required>
+                            </div>
+
+                            <!-- Campo de Contraseña -->
+                            <div class="form-group">
+                                <label for="clave" class="text-info">Contraseña:</label><br>
+                                <input type="password" name="Clave" id="clave" class="form-control" required>
+                            </div>
+
+                            <!-- Campo de Confirmar Contraseña -->
+                            <div class="form-group">
+                                <label for="confirmarClave" class="text-info">Confirmar Contraseña:</label><br>
+                                <input type="password" name="ConfirmarClave" id="confirmarClave" class="form-control" required>
+                            </div>
+
+                            <!-- Checkbox "Remember me" (opcional) -->
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info">
+                                    <input id="remember-me" name="remember-me" type="checkbox">
+                                    <span>Recordarme</span>
+                                </label>
+                            </div>
+
+                            <!-- Botón de Enviar -->
+                            <div class="form-group text-center">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Registrarse">
+                            </div>
+
+                            <!-- Link para volver al login -->
+                            <div id="login-link" class="text-right">
+                                <a href="@Url.Action("Login", "Acceso")" class="text-info">¿Ya tienes cuenta? Inicia sesión aquí</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

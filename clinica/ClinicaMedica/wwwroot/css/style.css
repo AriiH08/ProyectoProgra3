@@ -1,0 +1,362 @@
+﻿
+html {
+    font-size: 100%;
+    position: relative;
+}
+
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+.body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 60%;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+
+/*---Inicio---*/
+.hero {
+    background: url('../images/fondo2.jpg') no-repeat center; /* Imagen de fondo */
+    object-fit: cover;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .hero .container {
+        z-index: 2;
+        /* Duda*/
+    }
+
+.hero-img, .service-img, .team-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.fondo {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* btn Agendar cita */
+.hero .cta-btn {
+    color: black;
+    background-color: lightgreen;
+    border-color: aquamarine;
+    border-radius: 2em;
+    transition: background-color 0.3s;
+}
+
+    .hero .cta-btn:hover {
+        background-color: #7FFF00; /* Cambio al pasar el ratón */
+        border-color: black;
+        color: black;
+        border-width: 0.2rem;
+        border-style: inset;
+    }
+/* Btn (Contactanos, conoce nuest...) */
+.hero .cta-btn2 {
+    color: azure;
+    background-color: dodgerblue;
+    border-color: #007bff;
+    border-radius: 1em;
+}
+
+    .hero .cta-btn2:hover {
+        background-color: cornflowerblue;
+        border-color: black;
+        color: black;
+        border-style: inset;
+    }
+
+
+/* Servicios */
+
+.services .card, .card {
+    box-shadow: 0 1em 2em inherit;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+
+.services, .location {
+    padding: 5% 3%
+}
+
+
+
+/*-----Equipo Medico----*/
+.body .team {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.team .card, .card {
+    box-shadow: 0 1em 2em #007bff;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.team-img {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* Formulario de contatcto y preguntas frecuentes */
+.contact {
+    max-width: 100%; /* Define un ancho máximo para evitar que sea muy ancho */
+    margin: 5% auto; /* Asegura que esté centrado */
+    padding: 3%;
+}
+
+    .contact .row {
+        justify-content: center; /* Centrar los elementos de la fila */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contact .contact-form {
+        max-width: 45%; /* El formulario ocupará todo el ancho del contenedor padre */
+        background-color: rgb(158, 192, 219);
+        box-shadow: 0 1em 2em rgba(0, 0, 0, 0.8);
+        border-radius: 1em;
+        margin-right: 2%;
+        padding: 2%; /*M*/
+    }
+
+    .contact .preFrec-module {
+        max-width: 40%;
+        min-width: 30%;
+        background-color: #c4e9f9;
+        border-radius: 1em;
+        box-shadow: 0 1em 2em rgba(0, 0, 0, 0.8);
+        margin-left: 2%;
+        padding: 2%; /*M*/
+    }
+
+
+
+
+/* ubicacion */
+.map iframe {
+    width: 100%;
+    height: auto; /*M*/
+    border: 0;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+}
+
+.description {
+    width: 100%;
+    background-color: black;
+    color: aliceblue;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.2);
+    border-radius: 1em;
+    margin: 2% 0;
+}
+
+/*-- Footer --*/
+footer {
+    background-color: #0e151b;
+    color: #fff;
+    padding: 2%; /*M*/
+    text-align: center;
+}
+
+.footer-link {
+    height: 5%;
+    padding: 4%;
+    margin-right: 6%; /*M*/
+    margin: 5% 0;
+    margin-bottom: 10%;
+}
+
+.social-links {
+    margin-bottom: 10%;
+    width: 100%;
+}
+
+
+/*--- Iconos ---*/
+.social-icon { /*Tamaño de iconos, redes sociales*/
+    font-size: 2.5em; /*M*/
+}
+
+.facebook-icon {
+    color: #3b5998;
+}
+
+.instagram-icon {
+    color: #C13584;
+}
+
+.linkedin-icon {
+    color: #0077b5
+}
+
+.youtube-icon {
+    color: #FF0000;
+}
+
+
+/* Borde de botones, CRUDs */
+.custom-button {
+    border-width: 0.2rem;
+    border-style: inset;
+}
+
+/* Vistas */
+.table {
+    box-shadow: 0 1em 0.5em rgba(0, 0, 0, 0.2);
+    border-radius: 2%;
+}
+
+
+
+
+
+/* Pantallas grandes*/
+@media (min-width: 64em) {
+    html {
+        font-size: 100%;
+    }
+
+    .services, .location {
+        padding: 7% 4%; /* Más padding en pantallas grandes */
+    }
+
+    .contact .contact-form, .preFrec-module {
+        max-width: 100%;
+    }
+
+    .body .team .card {
+        flex-basis: 30%; /* Los elementos ocupan el 30% del ancho del contenedor */
+        min-height: 350px; /* no f */
+    }
+}
+
+
+/*Pantallas Medianas*/
+@media (min-width: 48em) and (max-width: 64em) {
+    .hero {
+        height: 80vh;
+    }
+
+    .services, .location {
+        padding: 4% 2%; /* Ajuste para pantallas medianas */
+    }
+
+    .card-body {
+        font-size: 0.95em;
+    }
+
+    .contact .contact-form, .preFrec-module {
+        max-width: 100%; /* Ocupa menos espacio en pantallas medianas */
+        margin-right: 2%;
+    }
+}
+
+
+/*Pantallas pequeñas*/
+/* Media Queries for Responsiveness 576px*/
+@media (max-width: 576px) {
+    html {
+        font-size: 100%;
+    }
+
+    h1 {
+        font-size: 90%;
+    }
+
+
+    .body.hero {
+        height: 70vh; /* Ajuste en pantallas más pequeñas */
+    }
+
+        .body .hero .p {
+            font-size: 0.85em; /* no funciona */
+        }
+
+    .cta-btn .cta-btn2 {
+        width: 67%;
+        height: 32px;
+    }
+
+
+
+    .body .team .card {
+        max-width: 100%;
+        max-height: 350px; /* no funciona */
+    }
+
+    .body .team .team-img {
+        width: 60px; /* no funciona */
+        height: auto; /* no funciona */
+        object-fit: cover;
+    }
+
+    .card-body {
+        font-size: 0.65em
+    }
+
+    .contact {
+        padding: 2%;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+
+        .contact .contact-form {
+            max-width: 100%; /* Ocupar el 100% del ancho en pantallas pequeñas */
+            margin: 10% 0; /* Espacio entre ellos (margen superior e inferior) */
+        }
+
+        .contact .preFrec-module {
+            max-width: 100%;
+        }
+
+    .services, .location {
+        padding: 18% 1%;
+    }
+
+    .social-links {
+        margin-bottom: 20%;
+        max-width: 100%;
+    }
+}

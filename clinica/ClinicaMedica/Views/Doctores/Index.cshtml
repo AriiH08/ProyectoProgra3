@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ClinicaMedica.Data.Models.Doctore>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gestión de Doctores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success"> <i class="bi bi-plus-circle"> Añadir nuevo</i></a>
+</p>
+<table class="table" id="tblDoctores">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.DoctorId" class="btn btn-outline-warning custom-button">  <i class="bi bi-pencil-fill">Editar</i></a> |
+                    <a asp-action="Details" asp-route-id="@item.DoctorId" class="btn btn-outline-secondary custom-button"> <i class="bi bi-eye">Ver</i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.DoctorId" class="btn btn-outline-danger custom-button"> <i class="bi bi-trash"> Eliminar</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        let table = new DataTable('#tblDoctores', {
+        "language": {
+        "decimal": "",
+        "emptyTable": "No hay registros",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+        }
+        },
+        "width": "100%"
+        });
+    </script>
+}

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ClinicaMedica.Data.Models.PruebasLaboratorio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gestión de Pruebas de Laboratorio</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nueva Prueba</a>
+</p>
+
+<table class="table table-striped" id="tblPruebas">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TipoPrueba)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaPrueba)</th>
+            <th>@Html.DisplayNameFor(model => model.Resultado)</th>
+            <th>@Html.DisplayNameFor(model => model.Laboratorio.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Paciente.Nombre)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TipoPrueba)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaPrueba)</td>
+                <td>@Html.DisplayFor(modelItem => item.Resultado)</td>
+                <td>@Html.DisplayFor(modelItem => item.Laboratorio.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Paciente.Nombre)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PruebaId" class="btn btn-sm btn-warning">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.PruebaId" class="btn btn-sm btn-info">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PruebaId" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        let table = new DataTable('#tblPruebas', {
+        "language": {
+        "decimal": "",
+        "emptyTable": "No hay registros",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+        "first": "Primero",
+        "last": "Ultimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+        }
+        },
+        "width": "100%"
+        });
+    </script>
+}
